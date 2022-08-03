@@ -1,0 +1,7 @@
+#!/bin/sh
+set -e
+
+# Initialize the wiki volume if it doesn't exist
+[ "$(ls -A /wiki)" ] || /usr/bin/env tiddlywiki wiki --init server
+
+exec /usr/bin/env tiddlywiki wiki --listen host=0.0.0.0 port=8080
